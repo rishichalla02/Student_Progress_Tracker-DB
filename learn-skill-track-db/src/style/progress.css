@@ -1,0 +1,251 @@
+/* ===== PROGRESS ===== */
+.progress-container {
+  padding: 2rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease;
+}
+
+.progress-header-section {
+  margin-bottom: 2rem;
+}
+
+.progress-header-section h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.progress-subtitle {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Overall Row */
+.overall-row {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.overall-card {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  padding: 1.8rem;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.overall-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.overall-bar {
+  height: 14px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.overall-fill {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  transition: width 0.6s ease;
+}
+
+.overall-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Summary Cards */
+.summary-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.summary-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+
+.summary-card:hover {
+  transform: translateX(4px);
+}
+
+.summary-icon {
+  font-size: 24px;
+}
+
+.summary-val {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.summary-label {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Subjects Grid */
+.subjects-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 1.2rem;
+}
+
+.subject-progress {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.2rem;
+}
+
+.progress-card {
+  background: #ffffff;
+  padding: 1.4rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  border: 2px solid transparent;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.3s;
+  animation: fadeInUp 0.3s ease both;
+}
+
+.progress-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.09);
+}
+
+.progress-card-done {
+  border-color: #bbf7d0;
+}
+
+.progress-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.progress-card-top h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.badge-done {
+  font-size: 11px;
+  font-weight: 600;
+  background: #dcfce7;
+  color: #16a34a;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+.badge-pending {
+  font-size: 11px;
+  font-weight: 600;
+  background: #fef3c7;
+  color: #d97706;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+.progress-minutes {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+.completed-bar {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.progress-percent-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .overall-row {
+    grid-template-columns: 1fr;
+  }
+  .summary-cards {
+    flex-direction: row;
+  }
+  .summary-card {
+    flex: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .progress-container {
+    padding: 1.2rem;
+  }
+  .subject-progress {
+    grid-template-columns: 1fr;
+  }
+  .summary-cards {
+    flex-direction: column;
+  }
+}

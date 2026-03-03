@@ -1,0 +1,220 @@
+/* ===== TASKS ===== */
+.task-container {
+  padding: 2rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease;
+}
+
+.task-header-section {
+  margin-bottom: 2rem;
+}
+
+.task-header-section h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.task-subtitle {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* ─── Tasks Grid ─── */
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.4rem;
+}
+
+/* ─── Task Card ─── */
+.task-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 2px solid transparent;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.3s;
+  animation: fadeInUp 0.3s ease both;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.09);
+}
+
+.task-card-done {
+  border-color: #bbf7d0;
+  background: linear-gradient(135deg, #f0fdf4, #ffffff);
+}
+
+/* ─── Card Top ─── */
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.task-top h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.task-progress {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.task-badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.badge-done {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.badge-pending {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+/* ─── Progress Bar ─── */
+.progress-bar {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+.completed-bar {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.progress-percent {
+  font-size: 11px;
+  color: #94a3b8;
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+/* ─── Task Actions ─── */
+.task-action {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-btns {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.task-btns .btn {
+  flex: 1;
+}
+
+/* ─── Learn Button ─── */
+.learn-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid #6366f1;
+  background: #f0f0ff;
+  color: #6366f1;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: inherit;
+  flex: 1;
+}
+
+.learn-btn:hover:not(:disabled) {
+  background: #6366f1;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  transform: translateY(-1px);
+}
+
+.learn-btn:hover:not(:disabled) svg {
+  stroke: #ffffff;
+}
+
+.learn-btn-disabled,
+.learn-btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+  background: #f8fafc;
+  color: #94a3b8;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ─── Animations ─── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .task-container {
+    padding: 1.2rem;
+  }
+  .tasks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-btns {
+    flex-wrap: wrap;
+  }
+  .learn-btn {
+    flex: 1 1 100%;
+  }
+}

@@ -1,0 +1,59 @@
+/* ===== FORM STYLES ===== */
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label,
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #0f172a;
+  background: #ffffff;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.form-group input::placeholder {
+  color: #cbd5e1;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #334155;
+}
+
+.radio-group input[type="radio"] {
+  width: auto;
+  accent-color: #6366f1;
+  cursor: pointer;
+}
