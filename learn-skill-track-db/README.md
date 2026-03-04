@@ -14,7 +14,7 @@
 | `/dashboard` | Stats, charts, goal planner, calendar |
 | `/subjects` | Manage subjects and learning links |
 | `/tasks` | Daily study tracker per subject |
-| `/progress` | Detailed per-subject progress view |
+| `/progress` | Per-subject progress + Learn·Watch·Progress YouTube section |
 | `/profile` | View and edit personal information |
 | `/contact` | Send a message form |
 
@@ -158,7 +158,8 @@
     │   └── Contact.jsx
     │
     ├── data/
-    │   └── defaultSubjects.js     ← School + College subjects with learnUrl
+    │   ├── defaultSubjects.js     ← School + College subjects with learnUrl
+    │   └── videoResources.js      ← Static YouTube map for Learn·Watch·Progress
     │
     └── style/
         ├── login.css      ├── register.css   ├── navbar.css
@@ -399,3 +400,63 @@ Built with ❤️ as a student productivity and daily learning tracker.
 ## 📄 License
 
 This project is created for educational purposes.
+
+---
+
+## 🎬 Learn · Watch · Progress
+
+The **Progress page** includes a dedicated YouTube section at the bottom that shows curated long-form videos and playlists for each of the student's default subjects.
+
+### How it works
+- Appears automatically below the Subject Breakdown cards on `/progress`
+- Only shows cards for **default subjects** (school or college) — custom subjects are excluded
+- All links are **static and permanent** — never stored in Firestore, pure UI data
+- Each card opens the YouTube video or playlist directly in a new tab
+- Data lives in `src/data/videoResources.js` — kept separate from `Progress.jsx` to avoid bloating the component
+
+### Card features
+- **16:9 YouTube thumbnail** loaded from YouTube's CDN (`img.youtube.com`)
+- On hover: thumbnail zooms + darkens, red play button animates in
+- **Duration pill** — bottom-left of thumbnail (e.g. `🕐 12 hrs`)
+- **Playlist / Video badge** — top-right in indigo
+- Subject name shown in uppercase indigo above the title
+- Channel name and "Watch on YouTube →" arrow that expands on hover
+- **Filter pills** (All / School / College) — only shown if the student has subjects from both categories
+
+### Curated YouTube resources
+
+#### School
+
+| Subject | Channel | Type | Duration |
+|---|---|---|---|
+| Mathematics | Khan Academy | Playlist | 200+ videos |
+| Physics | Khan Academy | Playlist | 150+ videos |
+| Chemistry | Khan Academy | Playlist | 120+ videos |
+| Biology | Khan Academy | Playlist | 180+ videos |
+| English | BBC Learning English | Playlist | 100+ videos |
+| Social Science | CrashCourse | Playlist | 42 videos |
+
+#### College
+
+| Subject | Channel | Type | Duration |
+|---|---|---|---|
+| Data Structures & Algorithms | freeCodeCamp | Video | 8 hrs |
+| Web Development | freeCodeCamp | Video | 12 hrs |
+| App Development | freeCodeCamp | Video | 11 hrs |
+| Python | freeCodeCamp | Video | 4.5 hrs |
+| Java | Bro Code | Video | 12 hrs |
+| AI / Machine Learning | freeCodeCamp | Video | 10 hrs |
+| Software Engineering | freeCodeCamp | Video | 5 hrs |
+
+### File location
+
+```
+src/
+  data/
+    defaultSubjects.js     ← subject definitions (existing)
+    videoResources.js      ← YouTube resource map (new)
+  pages/
+    Progress.jsx           ← imports YOUTUBE_RESOURCES from ../data/videoResources
+```
+
+To update or replace a video link, edit only `videoResources.js` — no changes needed in `Progress.jsx`.
