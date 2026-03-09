@@ -25,7 +25,6 @@ dist-ssr
 serviceAccountKey.json
 migrateLearnUrls.mjs
 migrateLearnUrls.js
-vercel.json
 
 # ── Editor directories and files ───────────────────────
 .vscode/*
