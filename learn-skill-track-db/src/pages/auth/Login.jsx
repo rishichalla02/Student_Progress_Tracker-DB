@@ -165,7 +165,7 @@ const Login = () => {
         <div className="form-group">
           <label>Password</label>
           <div className="password-field">
-            <input
+            <InputField
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               value={password}
@@ -180,7 +180,7 @@ const Login = () => {
               }`}
               autoComplete="current-password"
             />
-            <button
+            <Button
               type="button"
               className="eye-btn"
               onClick={() => setShowPassword((v) => !v)}
@@ -188,7 +188,7 @@ const Login = () => {
               aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? <EyeOpen /> : <EyeClosed />}
-            </button>
+            </Button>
           </div>
           {touched.password && fieldErrors.password && (
             <p className="field-error">{fieldErrors.password}</p>
