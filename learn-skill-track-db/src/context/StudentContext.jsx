@@ -13,7 +13,6 @@ import { useAuth } from "./AuthContext";
 import {
   schoolSubjects,
   collegeSubjects,
-  SUBJECTS_VERSION,
 } from "../data/defaultSubjects";
 
 const StudentContext = createContext();
